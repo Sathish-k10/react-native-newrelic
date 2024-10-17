@@ -1,0 +1,47 @@
+# React Native
+node_modules/
+package-lock.json
+yarn-error.log
+yarn.lock
+npm-debug.log*
+# Expo
+.expo/
+.expo-shared/
+# Build artifacts
+android/.gradle/
+android/app/build/
+android/build/
+android/app/src/main/res/mipmap-*
+ios/build/
+ios/Pods/
+ios/Podfile.lock
+# Generated files
+*.iml
+*.hprof
+*.keystore
+*.jks
+*.db
+*.tgz
+*.gz
+# Logs
+logs/
+*.log
+# Environment files
+.env
+.env.* 
+# Watchman files
+.watchmanconfig
+# JetBrains IDEs
+.idea/
+# VS Code
+.vscode/
+# MacOS
+.DS_Store
+# Android Studio
+*.apk
+*.ap_
+# React Native debug files
+*.js.map
+# Temporary files
+tmp/
+temp/
