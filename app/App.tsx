@@ -16,6 +16,7 @@ import {
   useColorScheme,
   View,
   Button,
+  Alert,
 } from 'react-native';
 
 import {
@@ -25,6 +26,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import NewRelic from 'newrelic-react-native-agent';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -64,7 +66,13 @@ function App(): React.JSX.Element {
   };
 
   const handleError = () => {
-    throw new Error('This is a thrown error!');
+    try {
+      throw new Error('This is a thrown error!');
+    } catch (error: any) {
+      console.error(error);
+      Alert.alert('Error', error.message);
+      NewRelic.log('error', 'An error occurred: ' + error.message);
+    }
   };
 
   return (
