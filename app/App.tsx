@@ -68,7 +68,7 @@ function App(): React.JSX.Element {
 
   const handleError = async () => {
     try {
-      throw new Error('This is a thrown error 5!');
+      throw new Error('This is a thrown error!');
     } catch (error: any) {
       console.error(error);
       try {
