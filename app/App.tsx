@@ -26,6 +26,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { sendErrorLogToNewRelic } from './error.logging'
 import NewRelic from 'newrelic-react-native-agent';
 
 type SectionProps = PropsWithChildren<{
@@ -65,13 +66,16 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  const handleError = () => {
+  const handleError = async () => {
     try {
-      throw new Error('This is a thrown error!');
+      throw new Error('This is a thrown error 5!');
     } catch (error: any) {
       console.error(error);
-      Alert.alert('Error', error.message);
-      NewRelic.log('error', 'An error occurred: ' + error.message);
+      try {
+        await sendErrorLogToNewRelic(error);
+      } catch (err) {
+        console.error('Error sending log to New Relic:', err);
+      }
     }
   };
 
