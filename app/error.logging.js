@@ -1,7 +1,7 @@
 // error.logging.js
-const NEW_RELIC_API_KEY = 'NRAK-BRTFOICMJE0LND8ZQL0QBUH20PK';
+const NEW_RELIC_API_KEY = '';
 const NEW_RELIC_LOGS_API_URL = 'https://log-api.newrelic.com/log/v1';
-const NEW_RELIC_LICENSE_KEY = 'f960fb96a28b2e336bded43d1b7e15109045NRAL';
+const NEW_RELIC_LICENSE_KEY = '';
 
 export const sendErrorLogToNewRelic = async (error) => {
     const logPayload = {
