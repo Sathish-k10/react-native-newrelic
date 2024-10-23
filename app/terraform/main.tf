@@ -61,7 +61,7 @@ resource "newrelic_nrql_alert_condition" "condition_1" {
   aggregation_timer  = 30
 
   nrql {
-    query = "SELECT sum(newrelic.error.group.occurrences) as count FROM Metric WHERE (metricName = 'newrelic.error.group.occurrences') FACET `error.group.name`, `error.group.message`, `entity.name`"
+    query = "SELECT sum(newrelic.error.group.occurrences) as count FROM Metric WHERE (metricName = 'newrelic.error.group.occurrences') AND entity.guid IN ('${var.entity_guid}') FACET `error.group.name`, `error.group.message`, `entity.name`"
   }
   critical {
     operator              = "above"

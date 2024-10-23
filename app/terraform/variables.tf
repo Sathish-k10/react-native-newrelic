@@ -18,3 +18,7 @@ variable "new_relic_channel_id" {
   default     = "C07RJTF39LN"
   description = "The New Relic channel ID."
 }
+variable "entity_guid" {
+  default     = "NDczNzM4NXxNT0JJTEV8QVBQTElDQVRJT058NjAxNTA2Njg3"
+  description = "The new new relic mobile app entity id"
+}
